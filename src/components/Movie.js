@@ -8,6 +8,10 @@ class Movie extends React.Component {
         
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps)
+    }
+
     componentWillMount(){
         fetch('http://www.omdbapi.com/?s=batman&apikey=ffa9be4e')
         .then((response => response.json()))
@@ -30,7 +34,10 @@ class Movie extends React.Component {
                         <img src={movies.Poster} />
                         <h3 style={{fontSize: '15px'}}>{movies.Title}</h3>
                         <h6>${priceMovie}</h6>
-                        <button>Add to Cart</button>
+                        <button onClick={() => this.props.onAddMovie({
+                            movieName: movies.Title,
+                            moviePrice: priceMovie
+                        })}>Add to Cart</button>
                         </div>
                         )
                 })
@@ -42,7 +49,6 @@ class Movie extends React.Component {
             <div>
                 <div style={{backgroundColor: 'black', fontSize: '15px', color: 'white', textAlign: 'center', width: '100vw'}}>
                     <img src="https://mbtskoudsalg.com/images/movie-ticket-clipart-png-8.png" width="15%"/>
-                    <button>Cart</button>
                 </div>
                 < br/>
 
@@ -53,7 +59,7 @@ class Movie extends React.Component {
                     
                 </div>
 
-                <Cart />
+                <Cart {...this.props} price={priceMovie}/>
                 
                 {console.log(this.props.movieData.Search)}
                 </div>

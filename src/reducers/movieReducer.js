@@ -6,7 +6,6 @@ function movieReducer(state, action){
             movieCart: [
                 {
                     movieName: '',
-                    moviePoster: '',
                     moviePrice: ''
                 }
             ]
@@ -14,6 +13,17 @@ function movieReducer(state, action){
     }
 
     switch(action.type) {
+        case 'addMovie':
+        {
+            console.log(action.movieData)
+            return {
+                ...state,
+                
+                    movieName: action.movieData.movieName,
+                    moviePrice: action.movieData.moviePrice
+                
+            }
+        }
         case 'apiFetchData':
         {
             return {

@@ -1,11 +1,14 @@
 import React from 'react';
-import Movie from '../components/Movie'
+import Movie from './Movie';
 
 
 class Cart extends React.Component {
     constructor(props) {
         super(props);
-        
+        console.log(this.props.movieName)
+    }
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps)
     }
 
     render() {
@@ -22,8 +25,8 @@ class Cart extends React.Component {
                         <th>#</th>
                     </thead>
                     <tbody>
-                        <td>Movie Name</td>
-                        <td>9.99</td>
+                        <td>{this.props.movieName}</td>
+                        <td>price: {this.props.price}</td>
                         <button>Remove</button>
                     </tbody>
                 </table>
