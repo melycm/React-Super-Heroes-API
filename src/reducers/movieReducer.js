@@ -24,6 +24,10 @@ function movieReducer(state, action){
                 
             }
         }
+
+        // case 'deleteMovie':
+        //     const updatedArray = state.movieName.filter
+
         case 'apiFetchData':
         {
             return {

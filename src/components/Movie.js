@@ -33,10 +33,10 @@ class Movie extends React.Component {
                         <div style={{margin: '15px 3px 15px 30px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <img src={movies.Poster} />
                         <h3 style={{fontSize: '15px'}}>{movies.Title}</h3>
-                        <h6>${priceMovie}</h6>
+                        <h6>${Math.floor(Math.random() * 20)}</h6>
                         <button onClick={() => this.props.onAddMovie({
                             movieName: movies.Title,
-                            moviePrice: priceMovie
+                            moviePrice: Math.floor(Math.random() * 20)
                         })}>Add to Cart</button>
                         </div>
                         )
@@ -59,7 +59,7 @@ class Movie extends React.Component {
                     
                 </div>
 
-                <Cart {...this.props} price={priceMovie}/>
+                <Cart {...this.props} />
                 
                 {console.log(this.props.movieData.Search)}
                 </div>

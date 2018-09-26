@@ -26,8 +26,8 @@ class Cart extends React.Component {
                     </thead>
                     <tbody>
                         <td>{this.props.movieName}</td>
-                        <td>price: {this.props.price}</td>
-                        <button>Remove</button>
+                        <td>{this.props.price}</td>
+                        <button>X</button>
                     </tbody>
                 </table>
             </div>
